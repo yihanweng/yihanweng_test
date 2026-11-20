@@ -1,0 +1,893 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Yihan Weng | Creative Portfolio</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800;900&display=swap');
+
+:root {
+  --blue: #2878F0;
+  --dark-blue: #155BC6;
+  --cream: #F7F6F2;
+  --white: #FFFFFF;
+  --black: #17191D;
+  --grey: #777C85;
+  --light-blue: #E8F0FF;
+  --border: #E7E7E4;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'DM Sans', Arial, sans-serif;
+  background: var(--cream);
+  color: var(--black);
+  line-height: 1.6;
+}
+
+a { text-decoration: none; color: inherit; }
+
+.container {
+  max-width: 1160px;
+  margin: auto;
+  padding: 0 36px;
+}
+
+nav {
+  height: 76px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid var(--border);
+}
+
+.logo {
+  font-size: 18px;
+  font-weight: 900;
+  letter-spacing: -1px;
+}
+
+.logo span { color: var(--blue); }
+
+.nav-links {
+  display: flex;
+  gap: 28px;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--grey);
+}
+
+.nav-links a:hover { color: var(--blue); }
+
+.tag {
+  display: inline-block;
+  background: var(--light-blue);
+  color: var(--blue);
+  padding: 7px 13px;
+  border-radius: 30px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+section { padding: 105px 0; }
+
+.section-label {
+  color: var(--blue);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 2px;
+  margin-bottom: 14px;
+  text-transform: uppercase;
+}
+
+h2 {
+  font-size: clamp(34px, 5vw, 52px);
+  line-height: 1.1;
+  letter-spacing: -2px;
+  margin-bottom: 22px;
+}
+
+.description {
+  color: var(--grey);
+  max-width: 570px;
+  font-size: 14px;
+}
+
+/* HERO */
+
+.hero {
+  min-height: 650px;
+  display: grid;
+  grid-template-columns: 1.1fr .9fr;
+  align-items: center;
+  gap: 45px;
+  padding-top: 75px;
+  padding-bottom: 75px;
+}
+
+.hero h1 {
+  font-size: clamp(65px, 10vw, 116px);
+  font-weight: 900;
+  letter-spacing: -9px;
+  line-height: .91;
+  margin: 25px 0;
+}
+
+.hero h1 span { color: var(--blue); }
+
+.hero-subtitle {
+  font-size: 17px;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+.hero-text {
+  color: var(--grey);
+  font-size: 14px;
+  max-width: 450px;
+}
+
+.hero-buttons {
+  display: flex;
+  gap: 12px;
+  margin-top: 30px;
+  flex-wrap: wrap;
+}
+
+.btn {
+  padding: 13px 22px;
+  border-radius: 12px;
+  background: var(--blue);
+  color: white;
+  font-size: 12px;
+  font-weight: 700;
+  transition: .2s;
+}
+
+.btn:hover { background: var(--dark-blue); transform: translateY(-2px); }
+
+.btn-outline {
+  background: white;
+  color: var(--black);
+  border: 1px solid var(--border);
+}
+
+.btn-outline:hover { background: var(--light-blue); }
+
+.folder-area {
+  min-height: 400px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.folder {
+  width: 280px;
+  height: 215px;
+  background: linear-gradient(145deg, #4E95FF, #1765DF);
+  border-radius: 17px 17px 25px 25px;
+  position: relative;
+  transform: rotate(-7deg);
+  box-shadow: 0 30px 65px rgba(40,120,240,.25);
+}
+
+.folder:before {
+  content: "";
+  position: absolute;
+  width: 115px;
+  height: 26px;
+  background: #4E95FF;
+  top: -17px;
+  left: 20px;
+  border-radius: 10px 10px 0 0;
+}
+
+.folder:after {
+  content: "PORTFOLIO";
+  position: absolute;
+  left: 25px;
+  bottom: 28px;
+  font-size: 32px;
+  font-weight: 900;
+  letter-spacing: -2px;
+  color: white;
+}
+
+.floating-card {
+  position: absolute;
+  background: white;
+  padding: 18px;
+  border-radius: 15px;
+  box-shadow: 0 12px 35px rgba(0,0,0,.08);
+  font-size: 12px;
+  z-index: 2;
+}
+
+.card-top { top: 55px; right: 0; }
+.card-bottom { bottom: 45px; left: 0; }
+
+.floating-card strong {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 13px;
+}
+
+.skill-pill {
+  display: inline-block;
+  padding: 5px 9px;
+  background: var(--light-blue);
+  color: var(--blue);
+  border-radius: 6px;
+  margin: 3px;
+  font-size: 10px;
+  font-weight: 700;
+}
+
+/* ABOUT */
+
+.about-grid {
+  display: grid;
+  grid-template-columns: .8fr 1.2fr;
+  gap: 65px;
+  align-items: center;
+}
+
+.profile-placeholder {
+  background: #E8E9E9;
+  min-height: 380px;
+  border-radius: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #8C9299;
+  font-size: 13px;
+  overflow: hidden;
+}
+
+.about-content p {
+  color: var(--grey);
+  font-size: 14px;
+  margin-bottom: 25px;
+}
+
+.about-cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+  margin-top: 30px;
+}
+
+.info-card {
+  background: white;
+  border: 1px solid var(--border);
+  padding: 22px;
+  border-radius: 16px;
+}
+
+.info-card h3 {
+  font-size: 13px;
+  margin-bottom: 12px;
+}
+
+.info-card ul {
+  list-style: none;
+  color: var(--grey);
+  font-size: 12px;
+}
+
+.info-card li { margin: 7px 0; }
+
+/* APPROACH */
+
+.approach {
+  background: #EFF3FA;
+}
+
+.quote {
+  font-size: clamp(34px, 5vw, 65px);
+  font-weight: 900;
+  letter-spacing: -3px;
+  line-height: 1.08;
+  max-width: 800px;
+  margin: 25px 0 55px;
+}
+
+.quote span { color: var(--blue); }
+
+.principle-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+}
+
+.principle {
+  background: white;
+  padding: 28px;
+  border-radius: 18px;
+  min-height: 190px;
+}
+
+.principle .number {
+  color: var(--blue);
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.principle h3 {
+  margin: 20px 0 10px;
+  font-size: 17px;
+}
+
+.principle p {
+  color: var(--grey);
+  font-size: 12px;
+}
+
+/* RESULTS */
+
+.metrics-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+  margin-top: 40px;
+}
+
+.metric {
+  background: white;
+  padding: 30px;
+  border: 1px solid var(--border);
+  border-radius: 18px;
+}
+
+.metric h3 {
+  color: var(--blue);
+  font-size: 45px;
+  letter-spacing: -2px;
+}
+
+.metric p {
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.metric small {
+  color: var(--grey);
+  font-size: 11px;
+}
+
+.metrics-note {
+  margin-top: 20px;
+  font-size: 11px;
+  color: var(--grey);
+}
+
+/* PROJECTS */
+
+.projects {
+  background: #F0F0ED;
+}
+
+.project-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 25px;
+  margin-top: 40px;
+}
+
+.project {
+  background: white;
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.project-image {
+  height: 260px;
+  background: #DCE7F6;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #6983A5;
+  font-size: 12px;
+  overflow: hidden;
+}
+
+.project-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.project-info { padding: 25px; }
+
+.project-info h3 {
+  font-size: 19px;
+  margin-bottom: 7px;
+}
+
+.project-info p {
+  color: var(--grey);
+  font-size: 12px;
+}
+
+.project-type {
+  color: var(--blue);
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 1px;
+  margin-bottom: 10px;
+  display: block;
+}
+
+/* PROCESS */
+
+.process-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+  margin-top: 40px;
+}
+
+.process-step {
+  padding: 25px 18px;
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: 15px;
+}
+
+.process-step span {
+  color: var(--blue);
+  font-size: 11px;
+  font-weight: 800;
+}
+
+.process-step h3 {
+  font-size: 17px;
+  margin: 15px 0 8px;
+}
+
+.process-step p {
+  font-size: 11px;
+  color: var(--grey);
+}
+
+/* SOFTWARE */
+
+.software {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-top: 30px;
+}
+
+.software span {
+  background: white;
+  border: 1px solid var(--border);
+  padding: 13px 18px;
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+/* CONTACT */
+
+.contact {
+  background: var(--blue);
+  color: white;
+  text-align: center;
+  border-radius: 30px;
+  padding: 85px 35px;
+  margin-bottom: 50px;
+}
+
+.contact .section-label { color: #C9DEFF; }
+
+.contact h2 {
+  font-size: clamp(45px, 7vw, 75px);
+  margin: 20px 0;
+}
+
+.contact p {
+  color: #DCEAFF;
+  font-size: 14px;
+}
+
+.contact-links {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  flex-wrap: wrap;
+  margin-top: 35px;
+}
+
+.contact-links a {
+  background: white;
+  color: var(--blue);
+  padding: 13px 20px;
+  border-radius: 10px;
+  font-size: 12px;
+  font-weight: 800;
+}
+
+footer {
+  padding: 25px 0;
+  border-top: 1px solid var(--border);
+  display: flex;
+  justify-content: space-between;
+  color: var(--grey);
+  font-size: 11px;
+}
+
+/* RESPONSIVE */
+
+@media(max-width: 760px) {
+  .container { padding: 0 22px; }
+  .nav-links { display: none; }
+  section { padding: 75px 0; }
+  .hero { grid-template-columns: 1fr; padding-top: 65px; }
+  .hero h1 { letter-spacing: -5px; }
+  .folder-area { min-height: 340px; }
+  .folder { transform: scale(.85) rotate(-7deg); }
+  .about-grid { grid-template-columns: 1fr; gap: 30px; }
+  .about-cards { grid-template-columns: 1fr; }
+  .principle-grid, .metrics-grid { grid-template-columns: 1fr; }
+  .project-grid { grid-template-columns: 1fr; }
+  .process-grid { grid-template-columns: 1fr 1fr; }
+  footer { gap: 10px; flex-direction: column; }
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<!-- 01 COVER -->
+
+<nav>
+  <div class="logo">YIHAN<span>.</span></div>
+  <div class="nav-links">
+    <a href="#about">ABOUT</a>
+    <a href="#approach">APPROACH</a>
+    <a href="#results">RESULTS</a>
+    <a href="#projects">PROJECTS</a>
+    <a href="#contact">CONTACT</a>
+  </div>
+</nav>
+
+<header class="hero">
+  <div>
+    <span class="tag">Creative Portfolio · 2026</span>
+    <h1>PORT<br><span>FOLIO.</span></h1>
+    <div class="hero-subtitle">Yihan Weng | Media Producer</div>
+    <p class="hero-text">
+      Creating meaningful digital experiences through
+      visual storytelling, creative production and strategic thinking.
+    </p>
+    <div class="hero-buttons">
+      <a href="#projects" class="btn">Explore My Work ↗</a>
+      <a href="#contact" class="btn btn-outline">Get In Touch</a>
+    </div>
+  </div>
+
+  <div class="folder-area">
+    <div class="floating-card card-top">
+      <strong>MY EXPERTISE</strong>
+      <span class="skill-pill">Photography</span>
+      <span class="skill-pill">Videography</span>
+      <span class="skill-pill">Content</span>
+    </div>
+
+    <div class="folder"></div>
+
+    <div class="floating-card card-bottom">
+      <strong>CREATIVE THINKING</strong>
+      <div>Strategy → Creation → Growth</div>
+    </div>
+  </div>
+</header>
+
+<!-- 02 ABOUT ME -->
+
+<section id="about">
+  <div class="about-grid">
+
+    <div class="profile-placeholder">
+      YOUR PROFILE PHOTO
+    </div>
+
+    <div class="about-content">
+      <div class="section-label">02 / ABOUT ME</div>
+      <h2>Creative Mind.<br>Visual Storyteller.</h2>
+
+      <p>
+        Hi, I'm Yihan Weng, a Media Production graduate with
+        a passion for visual storytelling, digital content
+        creation and creative communication.
+      </p>
+
+      <p>
+        I enjoy transforming ideas into engaging visual experiences
+        through photography, videography, video editing and
+        digital design. Combining creative thinking with practical
+        production skills, I aim to create content that communicates
+        clearly and connects with audiences.
+      </p>
+
+      <div class="about-cards">
+        <div class="info-card">
+          <h3>MY EXPERTISE</h3>
+          <ul>
+            <li>✦ Photography & Videography</li>
+            <li>✦ Video Editing & Motion Graphics</li>
+            <li>✦ Digital Content Creation</li>
+            <li>✦ Graphic & Visual Design</li>
+            <li>✦ UX/UI Design</li>
+          </ul>
+        </div>
+
+        <div class="info-card">
+          <h3>MY SERVICES</h3>
+          <ul>
+            <li>✦ Video Production</li>
+            <li>✦ Social Media Content</li>
+            <li>✦ Brand Visual Design</li>
+            <li>✦ Photography Projects</li>
+            <li>✦ Digital Visual Experiences</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- 03 MY APPROACH -->
+
+<section id="approach" class="approach">
+  <div class="section-label">03 / MY APPROACH</div>
+
+  <h2>How I Think.<br>How I Create.</h2>
+
+  <div class="quote">
+    Strategy First.<br>
+    <span>Content That Connects.</span>
+  </div>
+
+  <div class="principle-grid">
+
+    <div class="principle">
+      <span class="number">01 / RESEARCH</span>
+      <h3>Understand Before Creating</h3>
+      <p>
+        Understand the brand, target audience and communication
+        objectives before developing creative ideas.
+      </p>
+    </div>
+
+    <div class="principle">
+      <span class="number">02 / CREATIVITY</span>
+      <h3>Creativity With Purpose</h3>
+      <p>
+        Turn insights into engaging visual stories.
+        Every creative decision should have a clear purpose.
+      </p>
+    </div>
+
+    <div class="principle">
+      <span class="number">03 / IMPACT</span>
+      <h3>Create, Evaluate & Improve</h3>
+      <p>
+        Focus on audience engagement, content quality
+        and continuous improvement through feedback.
+      </p>
+    </div>
+
+  </div>
+</section>
+
+<!-- 04 RESULTS -->
+
+<section id="results">
+  <div class="section-label">04 / RESULTS & GROWTH</div>
+  <h2>Creativity Meets<br>Measurable Impact.</h2>
+
+  <p class="description">
+    Creative work should not only look good. It should also
+    deliver meaningful results and communicate real value.
+  </p>
+
+  <div class="metrics-grid">
+
+    <div class="metric">
+      <h3>+120%</h3>
+      <p>Engagement Growth</p>
+      <small>Audience interaction performance</small>
+    </div>
+
+    <div class="metric">
+      <h3>+80%</h3>
+      <p>Follower Growth</p>
+      <small>Social media audience development</small>
+    </div>
+
+    <div class="metric">
+      <h3>+60%</h3>
+      <p>Reach Improvement</p>
+      <small>Content visibility and exposure</small>
+    </div>
+
+  </div>
+
+  <p class="metrics-note">
+    * Replace these illustrative figures with verified project data.
+    Do not present sample metrics as actual achievements.
+  </p>
+</section>
+
+<!-- 05 EXPERIENCE & WORK PROCESS -->
+
+<section id="projects" class="projects">
+  <div class="section-label">05 / MY EXPERIENCE</div>
+  <h2>Selected Creative<br>Projects.</h2>
+
+  <p class="description">
+    A collection of creative experiments, visual stories
+    and practical production projects.
+  </p>
+
+  <div class="project-grid">
+
+    <article class="project">
+      <div class="project-image">
+        PROJECT IMAGE 01
+      </div>
+      <div class="project-info">
+        <span class="project-type">PHOTOGRAPHY / VISUAL STORYTELLING</span>
+        <h3>The City Dissolves – Leicester</h3>
+        <p>
+          Exploring Leicester through reflections, movement,
+          light and shadow, transforming familiar urban scenes
+          into abstract visual experiences.
+        </p>
+      </div>
+    </article>
+
+    <article class="project">
+      <div class="project-image">
+        PROJECT IMAGE 02
+      </div>
+      <div class="project-info">
+        <span class="project-type">VIDEOGRAPHY / VIDEO PRODUCTION</span>
+        <h3>Video Production</h3>
+        <p>
+          Showcasing filming, visual composition, editing
+          techniques and storytelling through moving images.
+        </p>
+      </div>
+    </article>
+
+    <article class="project">
+      <div class="project-image">
+        PROJECT IMAGE 03
+      </div>
+      <div class="project-info">
+        <span class="project-type">DIGITAL CONTENT / SOCIAL MEDIA</span>
+        <h3>Digital Content Creation</h3>
+        <p>
+          Developing visual content concepts and creative
+          assets for digital platforms and online audiences.
+        </p>
+      </div>
+    </article>
+
+    <article class="project">
+      <div class="project-image">
+        PROJECT IMAGE 04
+      </div>
+      <div class="project-info">
+        <span class="project-type">UX/UI / DIGITAL DESIGN</span>
+        <h3>Digital Experience Design</h3>
+        <p>
+          Exploring user-centred design, visual hierarchy
+          and intuitive digital interfaces.
+        </p>
+      </div>
+    </article>
+
+  </div>
+</section>
+
+<section>
+  <div class="section-label">WORK PROCESS</div>
+  <h2>From Ideas to Impact.</h2>
+
+  <p class="description">
+    A structured creative workflow that connects strategy,
+    production and continuous improvement.
+  </p>
+
+  <div class="process-grid">
+
+    <div class="process-step">
+      <span>01 / DISCOVER</span>
+      <h3>Research</h3>
+      <p>Audience insights, brand research and creative exploration.</p>
+    </div>
+
+    <div class="process-step">
+      <span>02 / DEFINE</span>
+      <h3>Planning</h3>
+      <p>Content strategy, concepts and production planning.</p>
+    </div>
+
+    <div class="process-step">
+      <span>03 / CREATE</span>
+      <h3>Execution</h3>
+      <p>Filming, photography, editing and visual production.</p>
+    </div>
+
+    <div class="process-step">
+      <span>04 / IMPROVE</span>
+      <h3>Optimization</h3>
+      <p>Feedback, performance evaluation and refinement.</p>
+    </div>
+
+  </div>
+
+  <div style="margin-top:65px">
+    <div class="section-label">TOOLS & SOFTWARE</div>
+    <h2 style="font-size:32px">My Creative Toolkit.</h2>
+
+    <div class="software">
+      <span>Ps / Photoshop</span>
+      <span>Pr / Premiere Pro</span>
+      <span>Ai / Illustrator</span>
+      <span>Ae / After Effects</span>
+      <span>An / Animate</span>
+      <span>Photography</span>
+      <span>Videography</span>
+      <span>UX/UI Design</span>
+    </div>
+  </div>
+</section>
+
+<!-- 06 CONTACT -->
+
+<div id="contact" class="contact">
+  <div class="section-label">06 / WORK WITH ME</div>
+
+  <h2>Let's Create<br>Something Great.</h2>
+
+  <p>
+    Open to creative opportunities, collaborations
+    and exciting new projects.
+  </p>
+
+  <div class="contact-links">
+    <a href="mailto:YOUR_EMAIL@example.com">Email Me ↗</a>
+    <a href="https://www.linkedin.com/" target="_blank">LinkedIn ↗</a>
+    <a href="https://www.instagram.com/" target="_blank">Instagram ↗</a>
+  </div>
+</div>
+
+<footer>
+  <span>© 2026 Yihan Weng. All Rights Reserved.</span>
+  <span>Designed with Creativity & Purpose.</span>
+</footer>
+
+</div>
+</body>
+</html>
